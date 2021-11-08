@@ -9,4 +9,8 @@
     <Folder Include="wwwroot\assets\theme\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RockyPanelBackend\RockyPanelBackend.csproj" />
+  </ItemGroup>
+
 </Project>

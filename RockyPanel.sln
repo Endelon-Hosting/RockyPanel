@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RockyPanel", "RockyPanel\RockyPanel.csproj", "{C146B099-9E32-4836-BD50-A382AF5BB3FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RockyPanel", "RockyPanel\RockyPanel.csproj", "{C146B099-9E32-4836-BD50-A382AF5BB3FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RockyPanelBackend", "RockyPanelBackend\RockyPanelBackend.csproj", "{AB9DB97B-C36F-492E-BA36-42602CF61227}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RockyPanelBackend", "RcokyPanelBackend\RockyPanelBackend.csproj", "{238A2FE5-48A3-4D1B-95DE-1A60E9B59349}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{C146B099-9E32-4836-BD50-A382AF5BB3FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C146B099-9E32-4836-BD50-A382AF5BB3FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C146B099-9E32-4836-BD50-A382AF5BB3FB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AB9DB97B-C36F-492E-BA36-42602CF61227}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AB9DB97B-C36F-492E-BA36-42602CF61227}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AB9DB97B-C36F-492E-BA36-42602CF61227}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AB9DB97B-C36F-492E-BA36-42602CF61227}.Release|Any CPU.Build.0 = Release|Any CPU
+		{238A2FE5-48A3-4D1B-95DE-1A60E9B59349}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{238A2FE5-48A3-4D1B-95DE-1A60E9B59349}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{238A2FE5-48A3-4D1B-95DE-1A60E9B59349}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{238A2FE5-48A3-4D1B-95DE-1A60E9B59349}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

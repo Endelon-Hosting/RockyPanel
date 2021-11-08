@@ -4,22 +4,22 @@
 </div><div class="simplebar-track horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar"></div></div><div class="simplebar-scroll-content" style="padding-right: 17px; margin-bottom: -34px;">
     <div class="simplebar-content" style="padding-bottom: 17px; margin-right: -17px;">
         <div class="brand-logo">
-            <a href="index.html">
-                <img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
-                <h5 class="logo-text">Dashtreme Admin</h5>
+            <a href="/">
+                <img src="/assets/theme/@(Constants.Theme)/images/logo-icon.png" class="logo-icon" alt="logo icon">
+                <h5 class="logo-text">@Constants.PanelName</h5>
             </a>
         </div>
         <ul class="sidebar-menu do-nicescrol in">
-            <li class="sidebar-header">MAIN NAVIGATION</li>
+            <li class="sidebar-header">Server</li>
             <li class="active">
-                <a href="index.html" class="active">
-                    <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
+                <a href="/dashboard" class="active">
+                    <i class="zmdi zmdi-view-dashboard"></i> <span>@LangProvider.Get("dashboard")</span>
                 </a>
             </li>
 
             <li>
-                <a href="icons.html">
-                    <i class="zmdi zmdi-invert-colors"></i> <span>UI Icons</span>
+                <a href="/servers">
+                    <i class="zmdi zmdi-invert-colors"></i> <span>@LangProvider.Get("server.your")</span>
                 </a>
             </li>
 
@@ -60,7 +60,7 @@
                 </a>
             </li>
 
-            <li class="sidebar-header">LABELS</li>
+            <li class="sidebar-header">Admin</li>
             <li><a href="javaScript:void();"><i class="zmdi zmdi-coffee text-danger"></i> <span>Important</span></a></li>
             <li><a href="javaScript:void();"><i class="zmdi zmdi-chart-donut text-success"></i> <span>Warning</span></a></li>
             <li><a href="javaScript:void();"><i class="zmdi zmdi-share text-info"></i> <span>Information</span></a></li>

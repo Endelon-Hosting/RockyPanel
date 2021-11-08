@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace RcokyPanelBackend
+namespace RockyPanelBackend
 {
     public class PropertiesConfigReader
     {

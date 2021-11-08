@@ -5,8 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Data\" />
     <Folder Include="wwwroot\assets\theme\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RcokyPanelBackend\RockyPanelBackend.csproj" />
   </ItemGroup>
 
 </Project>

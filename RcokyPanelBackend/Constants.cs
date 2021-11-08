@@ -1,8 +1,9 @@
-﻿namespace RcokyPanelBackend
+﻿namespace RockyPanelBackend
 {
     public class Constants
     {
-        public string Version { get; set; } = "v1.0";
-        public string PanelName { get; set; } = "Rocky (Canary)";
+        public static string Version { get; set; } = "Canary";
+        public static string PanelName { get; set; } = "Rocky";
+        public static string Theme { get; set; } = "dashtreme";
     }
 }

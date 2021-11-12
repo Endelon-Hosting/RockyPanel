@@ -1,0 +1,20 @@
+﻿@inject ISessionStorage sessionStorage
+@inject ILocalStorage localStorage
+
+@if (loaded)
+{
+    
+}
+
+@code
+{
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+    public bool loaded = false;
+    public bool admin = false;
+
+    protected override async Task OnInitAsync()
+    {
+        loaded = true;
+    }
+}

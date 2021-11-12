@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+using Blazor.Extensions.Storage;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
@@ -28,6 +30,7 @@ namespace RockyPanel
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddStorage();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RcokyPanelBackend\RockyPanelBackend.csproj" />
+    <ProjectReference Include="..\RockyPanelBackend\RockyPanelBackend.csproj" />
   </ItemGroup>
 
 </Project>

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace RcokyPanelBackend
+namespace RockyPanelBackend
 {
     public class PropertiesConfigReader
     {
@@ -42,7 +42,7 @@ namespace RcokyPanelBackend
                         {
                             var index = line.IndexOf("=");
                             var key = line.Remove(index);
-                            var value = line.Remove(0, index);
+                            var value = line.Remove(0, index+1);
                             Values[key] = value;
                         }
                         catch (Exception)

@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RockyPanel", "RockyPanel\RockyPanel.csproj", "{C146B099-9E32-4836-BD50-A382AF5BB3FB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RockyPanelBackend", "RcokyPanelBackend\RockyPanelBackend.csproj", "{238A2FE5-48A3-4D1B-95DE-1A60E9B59349}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RockyPanelBackend", "RockyPanelBackend\RockyPanelBackend.csproj", "{238A2FE5-48A3-4D1B-95DE-1A60E9B59349}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

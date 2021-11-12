@@ -1,7 +1,4 @@
-﻿<div class="simplebar-track vertical" style="visibility: hidden;">
-    <div class="simplebar-scrollbar" style="visibility: visible; top: 0px; height: 506px;">
-    </div>
-</div><div class="simplebar-track horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar"></div></div><div class="simplebar-scroll-content" style="padding-right: 17px; margin-bottom: -34px;">
+﻿<div class="simplebar-track horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar"></div></div><div class="simplebar-scroll-content" style="padding-right: 17px; margin-bottom: -34px;">
     <div class="simplebar-content" style="padding-bottom: 17px; margin-right: -17px;">
         <div class="brand-logo">
             <a href="/">
@@ -11,15 +8,15 @@
         </div>
         <ul class="sidebar-menu do-nicescrol in">
             <li class="sidebar-header">Server</li>
-            <li class="active">
+            <li>
                 <a href="/dashboard" class="active">
-                    <i class="zmdi zmdi-view-dashboard"></i> <span>@LangProvider.Get("dashboard")</span>
+                    <i class="fas fa-tachometer-alt"></i> <span>@LangProvider.Get("dashboard")</span>
                 </a>
             </li>
 
             <li>
                 <a href="/servers">
-                    <i class="zmdi zmdi-invert-colors"></i> <span>@LangProvider.Get("server.your")</span>
+                    <i class="fas fa-server"></i> <span>@LangProvider.Get("server.your")</span>
                 </a>
             </li>
 
@@ -61,10 +58,7 @@
             </li>
 
             <li class="sidebar-header">Admin</li>
-            <li><a href="javaScript:void();"><i class="zmdi zmdi-coffee text-danger"></i> <span>Important</span></a></li>
-            <li><a href="javaScript:void();"><i class="zmdi zmdi-chart-donut text-success"></i> <span>Warning</span></a></li>
-            <li><a href="javaScript:void();"><i class="zmdi zmdi-share text-info"></i> <span>Information</span></a></li>
-
+            <li><a href="/admin/server"><i class="fas fa-cogs"></i> <span>@LangProvider.Get("admin.settings")</span></a></li>
         </ul>
 
     </div>

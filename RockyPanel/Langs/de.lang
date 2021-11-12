@@ -1,3 +1,8 @@
 ﻿server.your=Deine Server
 dashboard=Dashboard
 admin.settings=Einstellungen
+pterodactyl.bridge=Pterodactyl Brücke
+mysql.database=MySQL Datenbank
+system.overview=System Übersicht
+system.workload=Auslastung
+nodes=Nodes

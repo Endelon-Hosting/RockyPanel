@@ -1,0 +1,79 @@
+﻿@page "/admin"
+@page "/admin/dashboard"
+
+<div class="row">
+    <div class="col-12 col-lg-4 col-xl-4">
+        <div class="card">
+            <div class="card-header">
+                @LangProvider.Get("system.overview")
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush table-borderless">
+                        <tbody>
+                            <tr>
+                                <td>Rocky</td>
+                                <td>
+                                    <div class="text-success">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>@LangProvider.Get("pterodactyl.bridge")</td>
+                                <td>
+                                    <div class="text-success">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>@LangProvider.Get("mysql.database")</td>
+                                <td>
+                                    <div class="text-success">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-lg-4 col-xl-4">
+        <div class="card">
+            <div class="card-header">
+                @LangProvider.Get("system.workload")
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush table-borderless">
+                        <tbody>
+                            <tr>
+                                <td>@LangProvider.Get("pterodactyl.bridge")</td>
+                                <td>
+                                    <div class="progress shadow" style="height: 3px;">
+                                        <div class="progress-bar" role="progressbar" style="width: 60%"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>@LangProvider.Get("nodes")</td>
+                                <td>
+                                    <div class="progress shadow" style="height: 3px;">
+                                        <div class="progress-bar" role="progressbar" style="width: 60%"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+}

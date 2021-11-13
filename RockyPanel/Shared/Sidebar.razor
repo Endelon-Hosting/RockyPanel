@@ -74,16 +74,17 @@
                 </a>
             </li>
             <IsAuth>
-                @{ 
+                @if (storage != null)
+                {
                     UserModel user = storage.Get<UserModel>("user");
-                }
-                <div class="media">
-                    <div class="avatar"><i class="fas fa-user align-self-start mr-3"></i></div>
-                    <div class="media-body">
-                        <h6 class="mt-2 user-title">@(user.Name_First) @(user.Name_Last)</h6>
-                        <p class="user-subtitle">@(user.Email)</p>
+                    <div class="media">
+                        <div class="avatar"><i class="fas fa-user align-self-start mr-3"></i></div>
+                        <div class="media-body">
+                            <h6 class="mt-2 user-title">@(user.Name_First) @(user.Name_Last)</h6>
+                            <p class="user-subtitle">@(user.Email)</p>
+                        </div>
                     </div>
-                </div>
+                }
             </IsAuth>
         </ul>
     </div>

@@ -8,10 +8,12 @@ namespace RockyPanelBackend
     public class Rocky
     {
         public static List<UserModel> Users { get; set; }
+        public static List<ServerModel> Servers { get; set; }
 
         public static void LoadDataFromDB()
         {
             Users = DatabaseProvider.GetUsers().Result;
+            Servers = DatabaseProvider.GetServers().Result;
         }
 
         public class UserActions
@@ -30,6 +32,26 @@ namespace RockyPanelBackend
                 }
 
                 return result;
+            }
+        }
+
+        public class ServerActions
+        {
+            public static ServerModel[] GetServers(int startIndex = 0, int lenght = -1)
+            {
+                List<ServerModel> result = new List<ServerModel>();
+
+                for(int i = startIndex; i <= Servers.Count; i++)
+                {
+                    if(i != -1 && i > lenght)
+                    {
+                        break;
+                    }
+
+                    result.Add(Servers[i]);
+                }
+
+                return result.ToArray();
             }
         }
     }

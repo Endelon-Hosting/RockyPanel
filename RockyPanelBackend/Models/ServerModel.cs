@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace RockyPanelBackend.Models
 {
@@ -6,7 +7,7 @@ namespace RockyPanelBackend.Models
     {
         [Key]
         public int Id { get; set; }
-        public string Uuid { get; set; }
+        public Guid Uuid { get; set; }
         public string Uuid_Short { get; set; }
         public int Node_Id { get; set; }
         public string Name { get; set; }

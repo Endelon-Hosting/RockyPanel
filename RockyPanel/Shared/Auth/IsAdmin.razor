@@ -1,0 +1,50 @@
+﻿@using Cloudcrate.AspNetCore.Blazor.Browser.Storage;
+@inject LocalStorage Storage
+
+@if (storage != null)
+{
+    if (storage.Exists("login"))
+    {
+        if (storage.Get<bool>("login"))
+        {
+            if (storage.Get<UserModel>("user").Root_Admin)
+            {
+                @ChildContent
+            }
+        }
+    }
+}
+
+@code
+{
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+    private KeyValueStorage storage = null;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        Task.Run(async () =>
+        {
+            if (storage == null)
+            {
+                string token = await Storage.GetItemAsync("rocky_token");
+
+                if (token == null)
+                {
+                    token = SessionStorageProvider.GenerateKey();
+                    await Storage.SetItemAsync("rocky_token", token);
+                }
+
+                if (!SessionStorageProvider.TokenValid(token))
+                {
+                    token = SessionStorageProvider.GenerateKey();
+                    await Storage.SetItemAsync("rocky_token", token);
+                }
+
+                storage = SessionStorageProvider.GetOrCreate(token);
+
+                InvokeAsync(() => { StateHasChanged(); });
+            }
+        });
+    }
+}

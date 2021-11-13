@@ -1,0 +1,58 @@
+﻿@page "/admin/servers/{id}"
+@page "/admin/servers"
+
+<div class="row">
+    <div class="col-12 col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                Recent Order Tables
+                <div class="card-action">
+                    <div class="dropdown">
+                        <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+                            <i class="icon-options"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="javascript:void();">Action</a>
+                            <a class="dropdown-item" href="javascript:void();">Another action</a>
+                            <a class="dropdown-item" href="javascript:void();">Something else here</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="javascript:void();">Separated link</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table align-items-center table-flush table-borderless">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Besitzer</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Id == null)
+                        {
+                            @foreach (ServerModel sm in Rocky.ServerActions.GetServers(0, 20))
+                            {
+                                <tr>
+                                    <td><a href="/admin/server/@(sm.Id)">@sm.Id</a></td>
+                                    <td>@sm.Name</td>
+                                    <td><a href="/admin/user/@(sm.Owner_Id)">@sm.Owner_Id</a></td>
+                                    <td>@sm.Status</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code
+{
+    [Parameter]
+    public int? Id { get; set; }
+}

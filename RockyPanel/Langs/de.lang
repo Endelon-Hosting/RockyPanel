@@ -13,3 +13,4 @@ enter.email=Emailadresse eingeben
 enter.password=Passwort eingeben
 login.invalid=Die Kombination aus Email und Passwort ist ungültig
 login.unloaded=Die Sessiondaten wurden noch nicht geladen. Bitte probier es nochmal
+servers=Server

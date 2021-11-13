@@ -1,6 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-
-using RockyPanelBackend.Models;
+﻿using RockyPanelBackend.Models;
 
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -18,6 +16,12 @@ namespace RockyPanelBackend.Database
         {
             string sql = $"SELECT * FROM {Constants.DatabaseName}.nodes";
             return await MySQLProvider.LoadData<NodeModel, dynamic>(sql, new { });
+        }
+
+        public static async Task<List<UserModel>> GetUsers()
+        {
+            string sql = $"SELECT * FROM {Constants.DatabaseName}.users";
+            return await MySQLProvider.LoadData<UserModel, dynamic>(sql, new { });
         }
     }
 }

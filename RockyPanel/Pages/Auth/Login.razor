@@ -1,0 +1,112 @@
+﻿@page "/login"
+
+@using Models.Forms
+
+@using Cloudcrate.AspNetCore.Blazor.Browser.Storage;
+@inject LocalStorage Storage
+@inject NavigationManager nm
+
+<div class="card card-authentication1 mx-auto my-5">
+    <div class="card-body">
+        <div class="card-content p-2">
+            <div class="text-center">
+                <img src="/assets/theme/@(Constants.Theme)/images/logo-icon.png" alt="logo icon" class="logo-icon">
+            </div>
+            <div class="card-title text-uppercase text-center py-3">@LangProvider.Get("login")</div>
+            <EditForm Model="LoginFormModel" OnValidSubmit="OnSubmit">
+                <DataAnnotationsValidator />
+                <div class="alert alert-danger" role="alert">
+                    @ErrorMessage
+                    <br />
+                    <ValidationSummary />
+                </div>
+                <div class="form-group">
+                    <label for="InputEmail" class="sr-only">@LangProvider.Get("email")</label>
+                    <div class="position-relative has-icon-right">
+                        <input type="email" id="InputEmail" class="form-control input-shadow" placeholder="@(LangProvider.Get("enter.email"))" @bind-value="LoginFormModel.Email">
+                        <div class="form-control-position">
+                            <i class="icon-user"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="InputPassword" class="sr-only">@LangProvider.Get("password")</label>
+                    <div class="position-relative has-icon-right">
+                        <input type="password" id="InputPassword" class="form-control input-shadow" placeholder="@(LangProvider.Get("enter.password"))" @bind-value="LoginFormModel.Password">
+                        <div class="form-control-position">
+                            <i class="icon-lock"></i>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-light btn-block">@LangProvider.Get("login")</button>
+            </EditForm>
+        </div>
+    </div>
+</div>
+
+@code
+{
+    private LoginFormModel LoginFormModel { get; set; } = new LoginFormModel();
+    private string ErrorMessage = "";
+    private KeyValueStorage storage = null;
+
+    private async void OnSubmit()
+    {
+        UserModel user = Rocky.UserActions.SearchForUser(LoginFormModel.Email);
+
+        if(storage == null)
+        {
+            ErrorMessage = LangProvider.Get("login.unloaded");
+            LoginFormModel = new LoginFormModel();
+            return;
+        }
+
+        if (user == null)
+        {
+            ErrorMessage = LangProvider.Get("login.invalid");
+            LoginFormModel = new LoginFormModel();
+        }
+        else
+        {
+            if (BCrypt.Net.BCrypt.Verify(LoginFormModel.Password, user.Password))
+            {
+                storage.Set("login", true);
+                storage.Set("user", user);
+
+                nm.NavigateTo("/", true);
+            }
+            else
+            {
+                ErrorMessage = LangProvider.Get("login.invalid");
+                LoginFormModel = new LoginFormModel();
+            }
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        Task.Run(async () =>
+        {
+            if (storage == null)
+            {
+                string token = await Storage.GetItemAsync("rocky_token");
+
+                if (token == null)
+                {
+                    token = SessionStorageProvider.GenerateKey();
+                    await Storage.SetItemAsync("rocky_token", token);
+                }
+
+                if (!SessionStorageProvider.TokenValid(token))
+                {
+                    token = SessionStorageProvider.GenerateKey();
+                    await Storage.SetItemAsync("rocky_token", token);
+                }
+
+                storage = SessionStorageProvider.GetOrCreate(token);
+
+                InvokeAsync(() => { StateHasChanged(); });
+            }
+        });
+    }
+}

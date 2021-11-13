@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
+using RockyPanelBackend;
 using RockyPanelBackend.Lang;
 
 namespace RockyPanel
@@ -16,7 +17,9 @@ namespace RockyPanel
     {
         public static void Main(string[] args)
         {
+            Constants.ReadFromFile("panel.conf");
             LangProvider.Load();
+            Rocky.LoadDataFromDB();
             CreateHostBuilder(args).Build().Run();
         }
 

@@ -3,13 +3,16 @@
 
 @if (storage != null)
 {
-    if (storage.Exists("login"))
+    if (storage.KeyValues.ContainsKey("login"))
     {
-        if (storage.Get<bool>("login"))
+        if (storage.KeyValues["login"] == "false")
         {
-            Console.WriteLine("!!!");
             @ChildContent
         }
+    }
+    else
+    {
+        @ChildContent
     }
 }
 

@@ -1,4 +1,7 @@
-﻿<div class="simplebar-track horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar"></div></div><div class="simplebar-scroll-content" style="padding-right: 17px; margin-bottom: -34px;">
+﻿@using Cloudcrate.AspNetCore.Blazor.Browser.Storage;
+@inject LocalStorage Storage
+
+<div class="simplebar-track horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar"></div></div><div class="simplebar-scroll-content" style="padding-right: 17px; margin-bottom: -34px;">
     <div class="simplebar-content" style="padding-bottom: 17px; margin-right: -17px;">
         <div class="brand-logo">
             <a href="/">
@@ -70,7 +73,50 @@
                     <i class="fas fa-cogs"></i> <span>@LangProvider.Get("admin.settings")</span>
                 </a>
             </li>
+            <IsAuth>
+                @{ 
+                    UserModel user = storage.Get<UserModel>("user");
+                }
+                <div class="media">
+                    <div class="avatar"><i class="fas fa-user align-self-start mr-3"></i></div>
+                    <div class="media-body">
+                        <h6 class="mt-2 user-title">@(user.Name_First) @(user.Name_Last)</h6>
+                        <p class="user-subtitle">@(user.Email)</p>
+                    </div>
+                </div>
+            </IsAuth>
         </ul>
-
     </div>
 </div>
+
+@code
+{
+    private KeyValueStorage storage = null;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        Task.Run(async () =>
+        {
+            if (storage == null)
+            {
+                string token = await Storage.GetItemAsync("rocky_token");
+
+                if (token == null)
+                {
+                    token = SessionStorageProvider.GenerateKey();
+                    await Storage.SetItemAsync("rocky_token", token);
+                }
+
+                if (!SessionStorageProvider.TokenValid(token))
+                {
+                    token = SessionStorageProvider.GenerateKey();
+                    await Storage.SetItemAsync("rocky_token", token);
+                }
+
+                storage = SessionStorageProvider.GetOrCreate(token);
+
+                InvokeAsync(() => { StateHasChanged(); });
+            }
+        });
+    }
+}

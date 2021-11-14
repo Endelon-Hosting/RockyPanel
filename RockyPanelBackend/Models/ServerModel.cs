@@ -12,7 +12,7 @@ namespace RockyPanelBackend.Models
         public int Node_Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public string Status { get; set; }
+        public string Status { get; set; } = "active";
         public int Owner_Id { get; set; }
         public int Memory { get; set; }
         public int Swap { get; set; }

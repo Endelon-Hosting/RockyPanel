@@ -1,4 +1,4 @@
-﻿@page "/admin/servers/{id}"
+﻿@page "/admin/servers/{Id:int}"
 @page "/admin/servers"
 
 <div class="row">
@@ -35,6 +35,18 @@
                         @if (Id == null)
                         {
                             @foreach (ServerModel sm in Rocky.ServerActions.GetServers(0, 20))
+                            {
+                                <tr>
+                                    <td><a href="/admin/server/@(sm.Id)">@sm.Id</a></td>
+                                    <td>@sm.Name</td>
+                                    <td><a href="/admin/user/@(sm.Owner_Id)">@sm.Owner_Id</a></td>
+                                    <td>@sm.Status</td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            @foreach (ServerModel sm in Rocky.ServerActions.GetServers(Id.Value, 20))
                             {
                                 <tr>
                                     <td><a href="/admin/server/@(sm.Id)">@sm.Id</a></td>

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 using RockyPanelBackend.Database;
 using RockyPanelBackend.Models;
@@ -14,6 +15,7 @@ namespace RockyPanelBackend
         {
             Users = DatabaseProvider.GetUsers().Result;
             Servers = DatabaseProvider.GetServers().Result;
+            Console.WriteLine($"Loaded {Servers.Count} servers");
         }
 
         public class UserActions
@@ -41,13 +43,8 @@ namespace RockyPanelBackend
             {
                 List<ServerModel> result = new List<ServerModel>();
 
-                for(int i = startIndex; i <= Servers.Count; i++)
+                for(int i = startIndex; i <= startIndex + lenght; i++)
                 {
-                    if(i != -1 && i > lenght)
-                    {
-                        break;
-                    }
-
                     result.Add(Servers[i]);
                 }
 
